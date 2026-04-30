@@ -98,24 +98,22 @@ function setup() {
     color(0, 255, 200),
     color(255, 200, 0),
   ];
-  activeSliceColor = color(80, 200, 255, 200);
-  idleSliceColor = color(40, 45, 60, 180);
-  hudPanelColor = color(0, 0, 0, 140);
-  dimTextColor = color(210);
-  donutHoleColor = color(0);
+  activeSliceColor = color(28, 110, 140, 180);
+  idleSliceColor = color(96, 88, 86, 180);
+  hudPanelColor = color(39, 65, 86, 180);
+  dimTextColor = color(208, 204, 208);
+  donutHoleColor = color(39, 65, 86);
   pointerColor = color(255, 80, 80);
 
   textFont("ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial");
 
   handpose.detectStart(video, gotHands);
 
-  // Create simple p5 DOM controls so the UI is implemented in p5
   playButton = createButton('Play');
   playButton.position(24, 92);
   playButton.style('padding', '8px 12px');
   playButton.style('border-radius', '8px');
   playButton.mousePressed(() => {
-    // keep lastTouchToggle guard behavior
     if (millis() - lastTouchToggleAt < 200) return;
     lastTouchToggleAt = millis();
     togglePlayback();
@@ -466,7 +464,7 @@ function drawUnderDonutLabel(donut, labelText) {
   const y = donut.center.y + donut.radius + DONUT_LABEL_GAP + h / 2;
 
   noStroke();
-  fill(0, 0, 0, 160);
+  fill(39, 65, 86);
   rectMode(CENTER);
   rect(x, y, w, h, 12);
 
@@ -484,7 +482,7 @@ function drawHUD(info) {
 
   noStroke();
   fill(hudPanelColor);
-  rect(14, 14, 360, 68, 14);
+  rect(14, 14, 360, 68, 5);
 
   let displayRoot = info.root;
   let displayQuality = info.quality;
@@ -503,7 +501,7 @@ function drawHUD(info) {
 
   textSize(13);
   fill(dimTextColor);
-  text("tones: " + displayTones.join("  "), 28, 50);
+  text("tones: " + displayTones.join(" "), 28, 50);
 }
 
 function getChordNoteStrings(rootIndex, qualityIndex) {
