@@ -165,7 +165,6 @@ function draw() {
   drawTrackedHands();
   drawHUD(info);
   syncSustainedChord(info);
-  // update p5 DOM UI
   updateUI(info);
 }
 
